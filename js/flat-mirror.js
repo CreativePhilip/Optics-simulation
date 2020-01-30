@@ -1,5 +1,3 @@
-
-
 /* ****  global variables **** */
 var c, ctx, slider, x, y;
 
