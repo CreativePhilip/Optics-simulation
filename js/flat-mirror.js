@@ -1,4 +1,4 @@
-import {Point, Line} from "./MathGeom";
+
 
 /* ****  global variables **** */
 var c, ctx, slider, x, y;
