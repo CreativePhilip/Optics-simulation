@@ -1,0 +1,37 @@
+<!doctype html>
+<head>
+    <title>Optics Simulation</title>
+
+    <link rel="stylesheet" href="../css/index.css">
+    <link href="https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet">
+
+    <script src="../js/flat-mirror.js"></script>
+</head>
+
+<body>
+    <section id="title-section">
+        <h1>Optics Simulation</h1>
+        <h5> CopyrightⒸ Philip Policki </h5>
+        <div>
+            <button><a href="#info-section"> Info </a></button>
+        </div>
+
+
+    </section>
+
+    <section id="info-section">
+
+    </section>
+
+    <section id="flat-mirror-section">
+        <h1> Flat Mirror </h1>
+        <canvas id="flat-mirror-canvas">
+
+        </canvas>
+
+        <div id="focal-length-div">
+            <label for="arcCenterSlider"> Focal length </label>
+            <input type="range" min="1" max="100" value="50" id="arcCenterSlider" oninput="draw()">
+        </div>
+    </section>
+</body>

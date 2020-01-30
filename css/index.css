@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5{
+    font-family: 'Bangers', cursive;
+}
+
+body {
+    margin: 0;
+}
+
+section {
+    height: 100vh;
+}
+
+/* ********************** Sections ********************** */
+
+#title-section {
+    background-color: #111111;
+}
+
+#title-section h1 {
+    padding-top: 40vh;
+
+    text-align: center;
+    letter-spacing: 0.1em;
+    font-size: 5em;
+    color: white;
+}
+
+#title-section h5 {
+    text-align: center;
+    letter-spacing: 0.15em;
+    font-size: 1.1em;
+    color: white;
+}
+
+#title-section button {
+    font-size: 3em;
+    letter-spacing: 8px;
+    cursor: pointer;
+
+    display: block;
+
+    margin: 1em auto auto;
+    height: 8vh;
+    width: 15vw;
+}
+
+#title-section a {
+    font-family: 'Bangers', cursive;
+    text-decoration: none;
+    color: #000000;
+}
+
+#info-section {
+    background-color: #aaaaaa;
+}
+
+#flat-mirror-section {
+    background-color: #7FDBFF;
+}
+
+#flat-mirror-section h1 {
+    padding-top: 10px;
+
+    color: white;
+    text-align: center;
+    font-size: 5em;
+    letter-spacing: 8px;
+}
+
+/* ********************** Canvases ********************** */
+
+#flat-mirror-canvas{
+    border-radius: 100px;
+    margin-top: 5vh;
+    margin-left: 5vw;
+
+    background-color: white;
+}
+
+#focal-length-div {
+    margin-left: 5vw;
+}
