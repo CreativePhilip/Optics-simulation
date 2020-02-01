@@ -2,7 +2,7 @@
     margin: 0;
 }
 
-h1, h2, h3, h4, h5{
+h1, h2, h3, h4, h5, label{
     font-family: 'Bangers', cursive;
 }
 
@@ -71,16 +71,76 @@ section {
     letter-spacing: 8px;
 }
 
+#convex-section{
+    background-color: #FF851B;
+}
+
 /* ********************** Canvases ********************** */
 
 #flat-mirror-canvas{
     border-radius: 100px;
-    margin-top: 5vh;
+    margin-top: 2vh;
     margin-left: 5vw;
 
     background-color: white;
 }
 
+/* ********************** Data Divs ********************** */
+
 #focal-length-div {
     margin-left: 5vw;
+    margin-bottom: 1vw;
+    margin-top: 0.5vw;
+}
+#focal-length-div label {
+    margin-right: 1em;
+}
+
+#point-one-div {
+    margin-left: 5vw;
+    margin-bottom: 0.8vw;
+}
+
+#point-one-div #pointOneX,
+#point-one-div #pointOneY {
+    text-align: center;
+    letter-spacing: 0.1em;
+
+    border-radius: 10px;
+    border: none;
+
+    height: 2em;
+    width: 4em;
+}
+
+#point-two-div {
+    margin-left: 5vw;
+}
+
+#point-two-div #pointTwoX,
+#point-two-div #pointTwoY {
+    text-align: center;
+    letter-spacing: 0.1em;
+
+    border-radius: 10px;
+    border: none;
+
+    height: 2em;
+    width: 4em;
+}
+
+
+/* ********************** Singular Widgets ********************** */
+
+.circleActionButton{
+    border: none;
+    background-color: #39CCCC;
+    border-radius: 50%;
+    height: 2.5em;
+    width: 2.5em;
+}
+
+.circleActionButton:hover,
+.circleActionButton:focus {
+    background-color: #FFDC00;
 }

@@ -6,10 +6,12 @@
     <link href="https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet">
 
     <script src="../js/flat-mirror.js"></script>
-    <script src="../js/MathGeom.js"></script>
+
 </head>
 
 <body>
+
+
     <section id="title-section">
         <h1>Optics Simulation</h1>
         <h5> CopyrightⒸ Philip Policki </h5>
@@ -26,13 +28,68 @@
 
     <section id="flat-mirror-section">
         <h1> Flat Mirror </h1>
-        <canvas id="flat-mirror-canvas">
+        <canvas id="flat-mirror-canvas"></canvas>
 
-        </canvas>
+        <div class="data">
+            <div id="point-one-div">
+                <label id="pointOneXLabel" for="pointOneX"> Point 1 X: </label>
+                <input type="text" value="100" id="pointOneX" onchange="p1xLabelChanged(this)">
+                <button class="circleActionButton" onclick="p1xButtonClicked(this)">+</button>
+                <button class="circleActionButton" onclick="p1xButtonClicked(this)">-</button>
 
-        <div id="focal-length-div">
-            <label for="arcCenterSlider"> Focal length </label>
-            <input type="range" min="1" max="100" value="50" id="arcCenterSlider" oninput="draw()">
+                <label id="pointOneYLabel" for="pointOneY"> Point 1 Y: </label>
+                <input type="text" value="0" id="pointOneY" onchange="p1yLabelChanged(this)">
+                <button class="circleActionButton" onclick="p1yButtonClicked(this)">+</button>
+                <button class="circleActionButton" onclick="p1yButtonClicked(this)">-</button>
+            </div>
+
+            <div id="point-two-div">
+                <label id="pointTwoXLabel" for="pointTwoX"> Point 2 X: </label>
+                <input type="text" value="100" id="pointTwoX" onchange="p2xLabelChanged(this)">
+                <button class="circleActionButton" onclick="p2xButtonClicked(this)">+</button>
+                <button class="circleActionButton" onclick="p2xButtonClicked(this)">-</button>
+
+                <label id="pointTwoYLabel" for="pointTwoY"> Point 2 Y: </label>
+                <input type="text" value="100" id="pointTwoY" onchange="p2yLabelChanged(this)">
+                <button class="circleActionButton" onclick="p2yButtonClicked(this)">+</button>
+                <button class="circleActionButton" onclick="p2yButtonClicked(this)">-</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="convex-section">
+        <h1> Convex Mirror / Lens </h1>
+        <canvas id="convex-canvas"></canvas>
+
+        <div class="data">
+            <div id="convex-focal-length-div">
+                <input type="range" min="1" max="100" value="50" id="convex-arcCenterSlider" oninput="focalSliderChanged()">
+                <label id="convex-arcCenterSliderLabel" for="convex-arcCenterSlider"> Arc length: 050 </label>
+            </div>
+
+            <div id="convex-point-one-div">
+                <label id="convex-pointOneXLabel" for="convex-pointOneX"> Point 1 X: </label>
+                <input type="text" value="100" id="convex-pointOneX" onchange="p1xLabelChanged(this)">
+                <button class="circleActionButton" onclick="p1xButtonClicked(this)">+</button>
+                <button class="circleActionButton" onclick="p1xButtonClicked(this)">-</button>
+
+                <label id="convex-pointOneYLabel" for="convex-pointOneY"> Point 1 Y: </label>
+                <input type="text" value="0" id="convex-pointOneY" onchange="p1yLabelChanged(this)">
+                <button class="circleActionButton" onclick="p1yButtonClicked(this)">+</button>
+                <button class="circleActionButton" onclick="p1yButtonClicked(this)">-</button>
+            </div>
+
+            <div id="convex-point-two-div">
+                <label id="convex-pointTwoXLabel" for="convex-pointTwoX"> Point 2 X: </label>
+                <input type="text" value="100" id="convex-pointTwoX" onchange="p2xLabelChanged(this)">
+                <button class="circleActionButton" onclick="p2xButtonClicked(this)">+</button>
+                <button class="circleActionButton" onclick="p2xButtonClicked(this)">-</button>
+
+                <label id="convex-pointTwoYLabel" for="convex-pointTwoY"> Point 2 Y: </label>
+                <input type="text" value="100" id="convex-pointTwoY" onchange="p2yLabelChanged(this)">
+                <button class="circleActionButton" onclick="p2yButtonClicked(this)">+</button>
+                <button class="circleActionButton" onclick="p2yButtonClicked(this)">-</button>
+            </div>
         </div>
     </section>
 </body>
