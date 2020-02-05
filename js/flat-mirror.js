@@ -50,8 +50,8 @@ class FlatMirror {
         this.ctx = this.c.getContext("2d");
         this.slider = document.getElementById("arcCenterSlider");
 
-        this.ctx.canvas.width = screen.width * 0.9;
-        this.ctx.canvas.height = screen.height * 0.6;
+        this.ctx.canvas.width = window.innerWidth * 0.9;
+        this.ctx.canvas.height = window.innerHeight * 0.6;
 
         this.x = this.c.scrollWidth / 2;
         this.y = this.c.scrollHeight / 2;
@@ -153,8 +153,8 @@ class FlatMirror {
     }
 }
 
-var flatMirror = new FlatMirror();
 
+var flatMirror = new FlatMirror();
 
 document.addEventListener("DOMContentLoaded", (evt) => {
     setup()

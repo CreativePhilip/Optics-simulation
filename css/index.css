@@ -72,7 +72,7 @@ section {
      margin-top: 20px;
 
      text-align: center;
-     font-size: 3em;
+     font-size: 2.5em;
      letter-spacing: 3px;
  }
 
@@ -83,7 +83,7 @@ section {
 .info-grid-item p {
     margin: 10px 10px 10px 10px;
 
-    font-size: 30px;
+    font-size: 1.5em;
 }
 
 .info-grid-item a {
@@ -95,7 +95,7 @@ section {
     margin-left: 60%;
 
     color: cornsilk;
-    font-size: 30px;
+    font-size: 1.7em;
     text-decoration: none;
 }
 
