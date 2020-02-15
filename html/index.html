@@ -49,28 +49,28 @@
         <canvas id="flat-mirror-canvas"></canvas>
 
         <div class="data">
-            <div id="point-one-div">
+            <div id="point-one-div" class="point-one-div">
                 <label id="pointOneXLabel" for="pointOneX"> Point 1 X: </label>
-                <input type="text" value="100" id="pointOneX" onchange="p1xLabelChanged(this)">
-                <button class="circleActionButton" onclick="p1xButtonClicked(this)">+</button>
-                <button class="circleActionButton" onclick="p1xButtonClicked(this)">-</button>
+                <input type="text" value="100" id="pointOneX" class="pointInput" onchange="p1xLabelChangedFlat(this)">
+                <button class="circleActionButton" onclick="p1xButtonClickedFlat(this)">+</button>
+                <button class="circleActionButton" onclick="p1xButtonClickedFlat(this)">-</button>
 
                 <label id="pointOneYLabel" for="pointOneY"> Point 1 Y: </label>
-                <input type="text" value="0" id="pointOneY" onchange="p1yLabelChanged(this)">
-                <button class="circleActionButton" onclick="p1yButtonClicked(this)">+</button>
-                <button class="circleActionButton" onclick="p1yButtonClicked(this)">-</button>
+                <input type="text" value="0" id="pointOneY" class="pointInput" onchange="p1yLabelChangedFlat(this)">
+                <button class="circleActionButton" onclick="p1yButtonClickedFlat(this)">+</button>
+                <button class="circleActionButton" onclick="p1yButtonClickedFlat(this)">-</button>
             </div>
 
-            <div id="point-two-div">
+            <div id="point-two-div" class="point-two-div">
                 <label id="pointTwoXLabel" for="pointTwoX"> Point 2 X: </label>
-                <input type="text" value="100" id="pointTwoX" onchange="p2xLabelChanged(this)">
-                <button class="circleActionButton" onclick="p2xButtonClicked(this)">+</button>
-                <button class="circleActionButton" onclick="p2xButtonClicked(this)">-</button>
+                <input type="text" value="100" id="pointTwoX" class="pointInput" onchange="p2xLabelChangedFlat(this)">
+                <button class="circleActionButton" onclick="p2xButtonClickedFlat(this)">+</button>
+                <button class="circleActionButton" onclick="p2xButtonClickedFlat(this)">-</button>
 
                 <label id="pointTwoYLabel" for="pointTwoY"> Point 2 Y: </label>
-                <input type="text" value="100" id="pointTwoY" onchange="p2yLabelChanged(this)">
-                <button class="circleActionButton" onclick="p2yButtonClicked(this)">+</button>
-                <button class="circleActionButton" onclick="p2yButtonClicked(this)">-</button>
+                <input type="text" value="100" id="pointTwoY" class="pointInput" onchange="p2yLabelChangedFlat(this)">
+                <button class="circleActionButton" onclick="p2yButtonClickedFlat(this)">+</button>
+                <button class="circleActionButton" onclick="p2yButtonClickedFlat(this)">-</button>
             </div>
         </div>
     </section>
@@ -81,32 +81,32 @@
 
         <div class="data">
             <div id="convex-focal-length-div">
-                <input type="range" min="1" max="100" value="50" id="convex-arcCenterSlider" oninput="focalSliderChanged()">
+                <input type="range" min="1" max="500" value="50" id="convex-arcCenterSlider" oninput="focalSliderChanged()">
                 <label id="convex-arcCenterSliderLabel" for="convex-arcCenterSlider"> Arc length: 050 </label>
             </div>
 
-            <div id="convex-point-one-div">
+            <div id="convex-point-one-div" class="point-one-div">
                 <label id="convex-pointOneXLabel" for="convex-pointOneX"> Point 1 X: </label>
-                <input type="text" value="100" id="convex-pointOneX" onchange="p1xLabelChanged(this)">
-                <button class="circleActionButton" onclick="p1xButtonClicked(this)">+</button>
-                <button class="circleActionButton" onclick="p1xButtonClicked(this)">-</button>
+                <input type="text" value="100" id="convex-pointOneX" class="pointInput" onchange="p1xLabelChangedConvex(this)">
+                <button class="circleActionButton" onclick="p1xButtonClickedConvex(this)">+</button>
+                <button class="circleActionButton" onclick="p1xButtonClickedConvex(this)">-</button>
 
                 <label id="convex-pointOneYLabel" for="convex-pointOneY"> Point 1 Y: </label>
-                <input type="text" value="0" id="convex-pointOneY" onchange="p1yLabelChanged(this)">
-                <button class="circleActionButton" onclick="p1yButtonClicked(this)">+</button>
-                <button class="circleActionButton" onclick="p1yButtonClicked(this)">-</button>
+                <input type="text" value="0" id="convex-pointOneY" class="pointInput" onchange="p1yLabelChangedConvex(this)">
+                <button class="circleActionButton" onclick="p1yButtonClickedConvex(this)">+</button>
+                <button class="circleActionButton" onclick="p1yButtonClickedConvex(this)">-</button>
             </div>
 
-            <div id="convex-point-two-div">
+            <div id="convex-point-two-div" class="point-two-div">
                 <label id="convex-pointTwoXLabel" for="convex-pointTwoX"> Point 2 X: </label>
-                <input type="text" value="100" id="convex-pointTwoX" onchange="p2xLabelChanged(this)">
-                <button class="circleActionButton" onclick="p2xButtonClicked(this)">+</button>
-                <button class="circleActionButton" onclick="p2xButtonClicked(this)">-</button>
+                <input type="text" value="100" id="convex-pointTwoX" class="pointInput" onchange="p2xLabelChangedConvex(this)">
+                <button class="circleActionButton" onclick="p2xButtonClickedConvex(this)">+</button>
+                <button class="circleActionButton" onclick="p2xButtonClickedConvex(this)">-</button>
 
                 <label id="convex-pointTwoYLabel" for="convex-pointTwoY"> Point 2 Y: </label>
-                <input type="text" value="100" id="convex-pointTwoY" onchange="p2yLabelChanged(this)">
-                <button class="circleActionButton" onclick="p2yButtonClicked(this)">+</button>
-                <button class="circleActionButton" onclick="p2yButtonClicked(this)">-</button>
+                <input type="text" value="100" id="convex-pointTwoY" class="pointInput" onchange="p2yLabelChangedConvex(this)">
+                <button class="circleActionButton" onclick="p2yButtonClickedConvex(this)">+</button>
+                <button class="circleActionButton" onclick="p2yButtonClickedConvex(this)">-</button>
             </div>
         </div>
     </section>

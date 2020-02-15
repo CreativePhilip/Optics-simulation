@@ -31,6 +31,9 @@ section {
     letter-spacing: 0.1em;
     font-size: 5em;
     color: white;
+
+    animation-name: titleAnimation;
+    animation-duration: 1s;
 }
 
 #title-section h5 {
@@ -38,6 +41,9 @@ section {
     letter-spacing: 0.15em;
     font-size: 1.1em;
     color: white;
+
+    animation-name: copyrightAnimation;
+    animation-duration: 1s;
 }
 
 #title-section button {
@@ -50,13 +56,61 @@ section {
     margin: 1em auto auto;
     height: 8vh;
     width: 15vw;
+
+    animation-duration: 1.3s;
+    animation-name: buttonAnimation;
 }
 
 #title-section a {
     font-family: 'Bangers', cursive;
     text-decoration: none;
     color: #000000;
+    opacity: 100%;
 }
+
+@keyframes titleAnimation {
+    0% {
+       font-size: 0;
+    }
+
+    100% {
+        font-size: 5em;
+    }
+}
+
+@keyframes copyrightAnimation {
+    0% {
+        font-size: 0;
+    }
+
+    100% {
+        font-size: 1.1em;
+    }
+}
+
+@keyframes buttonAnimation {
+    0% {
+        height: 0;
+        width: 0;
+    }
+
+    100% {
+        height: 8vh;
+        width: 15vw;
+    }
+}
+
+@keyframes aAnimation {
+    0%{
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+
+}
+
 
 #info-section {
     background-color: #aaaaaa;
@@ -123,9 +177,18 @@ section {
     background-color: #FF851B;
 }
 
+#convex-section h1 {
+    padding-top: 10px;
+
+    color: white;
+    text-align: center;
+    font-size: 5em;
+    letter-spacing: 8px;
+}
+
 /* ********************** Canvases ********************** */
 
-#flat-mirror-canvas{
+canvas {
     border-radius: 100px;
     margin-top: 2vh;
     margin-left: 5vw;
@@ -135,24 +198,27 @@ section {
 
 /* ********************** Data Divs ********************** */
 
-#focal-length-div {
+#convex-focal-length-div {
     margin-left: 5vw;
     margin-bottom: 1vw;
     margin-top: 0.5vw;
 }
 
-#focal-length-div label {
+#convex-focal-length-div label {
     margin-right: 1em;
 }
 
-#point-one-div {
+#convex-focal-length-div input {
+    width: 20vw;
+}
+
+.point-one-div {
     margin-top: 1.5vw;
     margin-left: 5vw;
     margin-bottom: 1.5vw;
 }
 
-#point-one-div #pointOneX,
-#point-one-div #pointOneY {
+.pointInput {
     text-align: center;
     letter-spacing: 0.1em;
 
@@ -163,20 +229,8 @@ section {
     width: 4em;
 }
 
-#point-two-div {
+.point-two-div {
     margin-left: 5vw;
-}
-
-#point-two-div #pointTwoX,
-#point-two-div #pointTwoY {
-    text-align: center;
-    letter-spacing: 0.1em;
-
-    border-radius: 10px;
-    border: none;
-
-    height: 2em;
-    width: 4em;
 }
 
 
