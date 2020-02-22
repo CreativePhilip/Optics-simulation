@@ -23,44 +23,27 @@
         <section id="info-section">
             <div class="info-grid">
                 <div id="flat-row" class="info-grid-item">
-                    <h1>Flat Mirror</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua. Diam quam nulla porttitor massa id neque aliquam vestibulum. Quis auctor elit sed
-                        vulputate mi sit. Malesuada fames ac turpis egestas maecenas pharetra convallis posuere morbi. Aenean
-                        euismod elementum nisi quis eleifend quam. Ac turpis egestas integer eget aliquet nibh praesent
-                        tristique magna. Lorem ipsum dolor sit amet consectetur. Sed faucibus turpis in eu mi bibendum neque.
-                        Egestas diam in arcu cursus euismod quis viverra nibh cras. Et malesuada fames ac turpis egestas.
-                        Tincidunt lobortis feugiat vivamus at augue eget arcu dictum. Vitae et leo duis ut. Tellus cras
-                        adipiscing enim eu turpis egestas pretium aenean pharetra. Mauris pharetra et ultrices neque ornare.
-                        Lorem ipsum dolor sit amet consectetur adipiscing.</p>
+                    <h1>Plane  Mirror</h1>
+                    <p>A plane mirror makes an image of objects in front of it;
+                        these images appear to be behind the plane in which the mirror lies.
+                        A straight line drawn from part of an object to the corresponding part of its image makes a right angle with,
+                        and is bisected by, the surface of the plane mirror. The image formed by a plane mirror is always virtual
+                        (meaning that the light rays do not actually come from the image), upright, and of the same shape and size as the object it is reflecting</p>
                     <br>
                     <a href="#flat-mirror-section"> Simulate </a>
                 </div>
                 <div id="convex-row" class="info-grid-item">
-                    <h1>Convex Mirror / Lens</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua. Diam quam nulla porttitor massa id neque aliquam vestibulum. Quis auctor elit sed
-                        vulputate mi sit. Malesuada fames ac turpis egestas maecenas pharetra convallis posuere morbi. Aenean
-                        euismod elementum nisi quis eleifend quam. Ac turpis egestas integer eget aliquet nibh praesent
-                        tristique magna. Lorem ipsum dolor sit amet consectetur. Sed faucibus turpis in eu mi bibendum neque.
-                        Egestas diam in arcu cursus euismod quis viverra nibh cras. Et malesuada fames ac turpis egestas.
-                        Tincidunt lobortis feugiat vivamus at augue eget arcu dictum. Vitae et leo duis ut. Tellus cras
-                        adipiscing enim eu turpis egestas pretium aenean pharetra. Mauris pharetra et ultrices neque ornare.
-                        Lorem ipsum dolor sit amet consectetur adipiscing.</p>
+                    <h1>Convex Lens</h1>
+                    <p>A convex lens is also known as a converging lens. A converging lens is a lens that converges rays of light that are traveling parallel to its principal axis.
+                        They can be identified by their shape which is relatively thick across the middle and thin at the upper and lower edges.
+                        The edges are curved outward rather than inward.</p>
                     <br>
                     <a href="#convex-section"> Simulate </a>
                 </div>
                 <div id="concave-row" class="info-grid-item">
-                    <h1>Concave Mirror / Lens</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua. Diam quam nulla porttitor massa id neque aliquam vestibulum. Quis auctor elit sed
-                        vulputate mi sit. Malesuada fames ac turpis egestas maecenas pharetra convallis posuere morbi. Aenean
-                        euismod elementum nisi quis eleifend quam. Ac turpis egestas integer eget aliquet nibh praesent
-                        tristique magna. Lorem ipsum dolor sit amet consectetur. Sed faucibus turpis in eu mi bibendum neque.
-                        Egestas diam in arcu cursus euismod quis viverra nibh cras. Et malesuada fames ac turpis egestas.
-                        Tincidunt lobortis feugiat vivamus at augue eget arcu dictum. Vitae et leo duis ut. Tellus cras
-                        adipiscing enim eu turpis egestas pretium aenean pharetra. Mauris pharetra et ultrices neque ornare.
-                        Lorem ipsum dolor sit amet consectetur adipiscing.</p>
+                    <h1>Concave Lens</h1>
+                    <p>A concave lens is a lens that possesses at least one surface that curves inwards.
+                        It is a diverging lens, meaning that it spreads out light rays that have been refracted through it.</p>
                     <br>
                     <a href="#concave-section"> Simulate </a>
                 </div>
@@ -68,7 +51,7 @@
         </section>
 
         <section id="flat-mirror-section">
-            <h1> Flat Mirror </h1>
+            <h1> Plane  Mirror </h1>
             <canvas id="flat-mirror-canvas"></canvas>
 
             <div class="data">
@@ -99,47 +82,95 @@
         </section>
 
         <section id="convex-section">
-            <h1> Convex Mirror / Lens </h1>
+            <h1> Convex Lens </h1>
             <canvas id="convex-canvas"></canvas>
 
-            <div class="data">
-                <div id="convex-focal-length-div">
-                    <input type="range" min="1" max="500" value="50" id="convex-arcCenterSlider" oninput="focalSliderChanged()">
-                    <label id="convex-arcCenterSliderLabel" for="convex-arcCenterSlider"> Arc length: 050 </label>
+            <div class="box-container">
+                <div class="data-in">
+                    <div id="convex-focal-length-div">
+                        <input type="range" min="1" max="500" value="50" id="convex-arcCenterSlider" oninput="convexFocalSliderChanged()">
+                        <label id="convex-arcCenterSliderLabel" for="convex-arcCenterSlider"> Arc length: 050 </label>
+                    </div>
+
+                    <div id="convex-point-one-div" class="point-one-div">
+                        <label id="convex-pointOneXLabel" for="convex-pointOneX"> Point 1 X: </label>
+                        <input type="text" value="100" id="convex-pointOneX" class="pointInput"
+                               onchange="p1xLabelChangedConvex(this)">
+                        <button class="circleActionButton" onclick="p1xButtonClickedConvex(this)">+</button>
+                        <button class="circleActionButton" onclick="p1xButtonClickedConvex(this)">-</button>
+
+                        <label id="convex-pointOneYLabel" for="convex-pointOneY"> Point 1 Y: </label>
+                        <input type="text" value="0" id="convex-pointOneY" class="pointInput"
+                               onchange="p1yLabelChangedConvex(this)">
+                        <button class="circleActionButton" onclick="p1yButtonClickedConvex(this)">+</button>
+                        <button class="circleActionButton" onclick="p1yButtonClickedConvex(this)">-</button>
+                    </div>
+
+                    <div id="convex-point-two-div" class="point-two-div">
+                        <label id="convex-pointTwoXLabel" for="convex-pointTwoX"> Point 2 X: </label>
+                        <input type="text" value="100" id="convex-pointTwoX" class="pointInput"
+                               onchange="p2xLabelChangedConvex(this)">
+                        <button class="circleActionButton" onclick="p2xButtonClickedConvex(this)">+</button>
+                        <button class="circleActionButton" onclick="p2xButtonClickedConvex(this)">-</button>
+
+                        <label id="convex-pointTwoYLabel" for="convex-pointTwoY"> Point 2 Y: </label>
+                        <input type="text" value="100" id="convex-pointTwoY" class="pointInput"
+                               onchange="p2yLabelChangedConvex(this)">
+                        <button class="circleActionButton" onclick="p2yButtonClickedConvex(this)">+</button>
+                        <button class="circleActionButton" onclick="p2yButtonClickedConvex(this)">-</button>
+                    </div>
                 </div>
 
-                <div id="convex-point-one-div" class="point-one-div">
-                    <label id="convex-pointOneXLabel" for="convex-pointOneX"> Point 1 X: </label>
-                    <input type="text" value="100" id="convex-pointOneX" class="pointInput"
-                           onchange="p1xLabelChangedConvex(this)">
-                    <button class="circleActionButton" onclick="p1xButtonClickedConvex(this)">+</button>
-                    <button class="circleActionButton" onclick="p1xButtonClickedConvex(this)">-</button>
-
-                    <label id="convex-pointOneYLabel" for="convex-pointOneY"> Point 1 Y: </label>
-                    <input type="text" value="0" id="convex-pointOneY" class="pointInput"
-                           onchange="p1yLabelChangedConvex(this)">
-                    <button class="circleActionButton" onclick="p1yButtonClickedConvex(this)">+</button>
-                    <button class="circleActionButton" onclick="p1yButtonClickedConvex(this)">-</button>
-                </div>
-
-                <div id="convex-point-two-div" class="point-two-div">
-                    <label id="convex-pointTwoXLabel" for="convex-pointTwoX"> Point 2 X: </label>
-                    <input type="text" value="100" id="convex-pointTwoX" class="pointInput"
-                           onchange="p2xLabelChangedConvex(this)">
-                    <button class="circleActionButton" onclick="p2xButtonClickedConvex(this)">+</button>
-                    <button class="circleActionButton" onclick="p2xButtonClickedConvex(this)">-</button>
-
-                    <label id="convex-pointTwoYLabel" for="convex-pointTwoY"> Point 2 Y: </label>
-                    <input type="text" value="100" id="convex-pointTwoY" class="pointInput"
-                           onchange="p2yLabelChangedConvex(this)">
-                    <button class="circleActionButton" onclick="p2yButtonClickedConvex(this)">+</button>
-                    <button class="circleActionButton" onclick="p2yButtonClickedConvex(this)">-</button>
+                <div class="data-out">
+                    <h3 id="convex-reflection-point"> P1 (0, 0) <br> P2(0, 0)</h3>
                 </div>
             </div>
         </section>
 
         <section id="concave-section">
+            <h1> Concave Lens </h1>
+            <canvas id="concave-canvas"></canvas>
 
+            <div class="box-container">
+                <div class="data-in">
+                    <div id="concave-focal-length-div">
+                        <input type="range" min="1" max="500" value="50" id="concave-arcCenterSlider" oninput="concaveFocalSliderChanged()">
+                        <label id="concave-arcCenterSliderLabel" for="concave-arcCenterSlider"> Arc length: 050 </label>
+                    </div>
+
+                    <div id="concave-point-one-div" class="point-one-div">
+                        <label id="concave-pointOneXLabel" for="concave-pointOneX"> Point 1 X: </label>
+                        <input type="text" value="100" id="concave-pointOneX" class="pointInput"
+                               onchange="p1xLabelChangedConcave(this)">
+                        <button class="circleActionButton" onclick="p1xButtonClickedConcave(this)">+</button>
+                        <button class="circleActionButton" onclick="p1xButtonClickedConcave(this)">-</button>
+
+                        <label id="concave-pointOneYLabel" for="concave-pointOneY"> Point 1 Y: </label>
+                        <input type="text" value="0" id="concave-pointOneY" class="pointInput"
+                               onchange="p1yLabelChangedConcave(this)">
+                        <button class="circleActionButton" onclick="p1yButtonClickedConcave(this)">+</button>
+                        <button class="circleActionButton" onclick="p1yButtonClickedConcave(this)">-</button>
+                    </div>
+
+                    <div id="concave-point-two-div" class="point-two-div">
+                        <label id="concave-pointTwoXLabel" for="concave-pointTwoX"> Point 2 X: </label>
+                        <input type="text" value="100" id="concave-pointTwoX" class="pointInput"
+                               onchange="p2xLabelChangedConcave(this)">
+                        <button class="circleActionButton" onclick="p2xButtonClickedConcave(this)">+</button>
+                        <button class="circleActionButton" onclick="p2xButtonClickedConcave(this)">-</button>
+
+                        <label id="concave-pointTwoYLabel" for="concave-pointTwoY"> Point 2 Y: </label>
+                        <input type="text" value="100" id="concave-pointTwoY" class="pointInput"
+                               onchange="p2yLabelChangedConcave(this)">
+                        <button class="circleActionButton" onclick="p2yButtonClickedConcave(this)">+</button>
+                        <button class="circleActionButton" onclick="p2yButtonClickedConcave(this)">-</button>
+                    </div>
+                </div>
+
+                <div class="data-out">
+                    <h3 id="concave-reflection-point"> P1 (0, 0) <br> <br> P2(0, 0)</h3>
+                </div>
+            </div>
         </section>
     </body>
 </html>

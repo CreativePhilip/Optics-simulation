@@ -8,6 +8,7 @@ html {
 
 h1, h2, h3, h4, h5, label{
     font-family: 'Bangers', cursive;
+    letter-spacing: 0.1em
 }
 
 body {
@@ -186,6 +187,19 @@ section {
     letter-spacing: 8px;
 }
 
+#concave-section {
+    background-color: #cd6bff;
+}
+
+#concave-section h1 {
+    padding-top: 10px;
+
+    color: white;
+    text-align: center;
+    font-size: 5em;
+    letter-spacing: 8px;
+}
+
 /* ********************** Canvases ********************** */
 
 canvas {
@@ -198,18 +212,47 @@ canvas {
 
 /* ********************** Data Divs ********************** */
 
-#convex-focal-length-div {
+.box-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.data-in{
+    flex-grow: 1;
+}
+
+.data-out {
+    flex-grow: 1;
+}
+
+.image-type{
+    flex-grow: 1;
+}
+
+#convex-focal-length-div,
+#concave-focal-length-div{
     margin-left: 5vw;
     margin-bottom: 1vw;
     margin-top: 0.5vw;
 }
 
-#convex-focal-length-div label {
+#convex-focal-length-div label,
+#concave-focal-length-div label{
     margin-right: 1em;
 }
 
-#convex-focal-length-div input {
+#convex-focal-length-div input,
+#concave-focal-length-div input{
     width: 20vw;
+}
+
+#convex-reflection-point,
+#convex-image-type,
+#concave-reflection-point,
+#concave-image-type
+{
+    font-weight: normal;
 }
 
 .point-one-div {

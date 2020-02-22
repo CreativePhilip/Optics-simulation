@@ -134,6 +134,8 @@ class Convex{
         this.p2xInput = document.getElementById("convex-pointTwoX");
         this.p2yInput = document.getElementById("convex-pointTwoY");
 
+        this.reflectionPoint = document.getElementById("convex-reflection-point");
+
         this.draw();
     }
 
@@ -158,11 +160,82 @@ class Convex{
         this.ctx.moveTo(this.x, 50);
         this.ctx.lineTo(this.x, this.c.scrollHeight - 50);
 
-        // for(let i = 50; i <(this.c.scrollHeight - 50); i += 50)
-        // {
-        //     this.ctx.moveTo(this.x, i + 30);
-        //     this.ctx.lineTo(this.x - 20, i + 10);
-        // }
+        this.ctx.stroke();
+    }
+    drawFocal(){
+        this.ctx.moveTo(this.x + parseInt(this.slider.value, 10), this.y - 15);
+        this.ctx.lineTo(this.x + parseInt(this.slider.value, 10), this.y + 15);
+
+        this.ctx.moveTo(this.x + (parseInt(this.slider.value, 10) / 2), this.y - 15);
+        this.ctx.lineTo(this.x + (parseInt(this.slider.value, 10) / 2), this.y + 15);
+
+        this.ctx.font = "20px Verdana";
+        this.ctx.fillText("C", this.x-20, this.y+ 20);
+        this.ctx.fillText("F", this.x + (parseInt(this.slider.value, 10) / 2) - 20, this.y +20);
+        this.ctx.fillText("O", this.x + parseInt(this.slider.value, 10) - 20, this.y+ 20);
+
+        this.ctx.stroke();
+    };
+    drawReflection(){
+        let p1 = this.reflectPoint(this.point1);
+        let p2 = this.reflectPoint(this.point2);
+
+        this.reflectionPoint.innerHTML = `P1(${p1.x}, ${p1.y}) <br> P2(${p2.x}, ${p2.y})`;
+
+        this.ctx.moveTo(this.x + p1.x, this.y - p1.y);
+        this.ctx.lineTo(this.x + p2.x, this.y - p2.y);
+        this.ctx.stroke();
+    }
+    reflectPoint(p){
+        let x = ((this.slider.value / 2) * p.x) / (p.x - (this.slider.value / 2));
+        let m = (x / p.x) * -1;
+        return new Point((x * -1), (m * p.y));
+    }
+}
+class Concave{
+    setup(){
+        this.point1 = new Point(100, 0);
+        this.point2 = new Point(100, 100);
+
+        this.c = document.getElementById("concave-canvas");
+        this.ctx = this.c.getContext("2d");
+        this.slider = document.getElementById("concave-arcCenterSlider");
+        this.ctx.canvas.width = window.innerWidth * 0.9;
+        this.ctx.canvas.height = window.innerHeight * 0.6;
+
+        this.x = this.c.scrollWidth / 2;
+        this.y = this.c.scrollHeight / 2;
+
+        this.p1xInput = document.getElementById("concave-pointOneX");
+        this.p1yInput = document.getElementById("concave-pointOneY");
+        this.p2xInput = document.getElementById("concave-pointTwoX");
+        this.p2yInput = document.getElementById("concave-pointTwoY");
+
+        this.reflectionPoint = document.getElementById("concave-reflection-point");
+
+        this.draw();
+    }
+
+    draw(){
+        this.ctx.beginPath();
+        this.ctx.clearRect(0, 0, this.c.scrollWidth, this.c.scrollHeight);
+        this.drawArrow();
+        this.drawReflection();
+        this.setupMirror();
+        this.drawFocal();
+    }
+    drawArrow() {
+        this.ctx.lineWidth = 3;
+        this.ctx.moveTo(this.point1.x + this.x, this.y - this.point1.y);
+        this.ctx.lineTo(this.point2.x + this.x, this.y - this.point2.y);
+    }
+    setupMirror() {
+        this.ctx.lineWidth = 2;
+        this.ctx.moveTo(0.1 * this.c.scrollWidth, this.c.scrollHeight / 2);
+        this.ctx.lineTo(0.9 * this.c.scrollWidth, this.c.scrollHeight / 2);
+
+        this.ctx.moveTo(this.x, 50);
+        this.ctx.lineTo(this.x, this.c.scrollHeight - 50);
 
         this.ctx.stroke();
     }
@@ -183,13 +256,15 @@ class Convex{
     drawReflection(){
         let p1 = this.reflectPoint(this.point1);
         let p2 = this.reflectPoint(this.point2);
-        console.log(p1, p2);
+
+        this.reflectionPoint.innerHTML = `P1(${p1.x}, ${p1.y}) <br> P2(${p2.x}, ${p2.y})`;
+
         this.ctx.moveTo(this.x + p1.x, this.y - p1.y);
         this.ctx.lineTo(this.x + p2.x, this.y - p2.y);
         this.ctx.stroke();
     }
     reflectPoint(p){
-        let x = ((this.slider.value / 2) * p.x) / (p.x - (this.slider.value / 2));
+        let x = ((-this.slider.value / 2) * p.x) / (p.x - (-this.slider.value / 2));
         let m = (x / p.x) * -1;
         return new Point(x * -1, m * p.y);
     }
@@ -197,19 +272,24 @@ class Convex{
 
 var flatMirror = new FlatMirror();
 var convex = new Convex();
+var concave = new Concave();
 
-document.addEventListener("DOMContentLoaded", (evt) => {
-    setup()
-});
+document.addEventListener("DOMContentLoaded", (evt) => {setup()});
 
 function setup() {
      flatMirror.setup();
      convex.setup();
+     concave.setup();
 }
 
-function focalSliderChanged() {
+function convexFocalSliderChanged() {
     document.getElementById("convex-arcCenterSliderLabel").innerText = "Arc length: " + convex.slider.value.toString().padStart(3, "0");
     convex.draw();
+}
+
+function concaveFocalSliderChanged() {
+    document.getElementById("concave-arcCenterSliderLabel").innerText = "Arc length: " + concave.slider.value.toString().padStart(3, "0");
+    concave.draw();
 }
 
 // Flat mirror event handlers
@@ -275,3 +355,33 @@ function p2yButtonClickedConvex(btt) {
     convex.draw();
 }
 
+
+function p1xLabelChangedConcave(lbl) { concave.point1.x = parseInt(lbl.value); concave.draw(); }
+function p1yLabelChangedConcave(lbl) { concave.point1.y = parseInt(lbl.value); concave.draw(); }
+function p2xLabelChangedConcave(lbl) { concave.point2.x = parseInt(lbl.value); concave.draw(); }
+function p2yLabelChangedConcave(lbl) { concave.point2.y = parseInt(lbl.value); concave.draw(); }
+
+function p1xButtonClickedConcave(btt) {
+    if(btt.innerHTML === "+") { concave.point1.x += 1; }
+    else { concave.point1.x -= 1; }
+    concave.p1xInput.value = concave.point1.x;
+    concave.draw();
+}
+function p1yButtonClickedConcave(btt) {
+    if(btt.innerHTML === "+") { concave.point1.y += 1; }
+    else { concave.point1.y -= 1; }
+    concave.p1yInput.value = concave.point1.y;
+    concave.draw();
+}
+function p2xButtonClickedConcave(btt) {
+    if(btt.innerHTML === "+") { concave.point2.x += 1; }
+    else { concave.point2.x -= 1; }
+    concave.p2xInput.value = concave.point2.x;
+    concave.draw();
+}
+function p2yButtonClickedConcave(btt) {
+    if(btt.innerHTML === "+") { concave.point2.y += 1; }
+    else { concave.point2.y -= 1; }
+    concave.p2yInput.value = concave.point2.y;
+    concave.draw();
+}
